@@ -3,7 +3,7 @@ package utils
 import (
 	"sort"
 
-	"github.com/felixgiftinfo/finger-print-test-project/models"
+	"github.com/felixgiftinfo/api_latencies/models"
 )
 
 // it sort the transaction in ascending order of time latency follows by amount in descending order
