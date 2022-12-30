@@ -3,7 +3,7 @@ pipeline{
         label "API Latencies"
     }
     tools {
-        go 'go1.19.3'
+        go 'Go 1.19.3'
     }
     environment {
         GO114MODULE = 'on'
