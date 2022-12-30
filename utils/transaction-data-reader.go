@@ -3,6 +3,7 @@ package utils
 import (
 	"encoding/csv"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -11,12 +12,17 @@ import (
 	"github.com/felixgiftinfo/api_latencies/models"
 )
 
+type FileAccess struct {
+	PathToDirectory string `json:"pathToDirectory"`
+}
+
 // get the api latencies from the json file
 // it returns key value pair of string and int
 // the string holds the bank country code
 // the int holds the time limit
-func getAPILatenciesData() map[string]int {
-	fileContent, err := ioutil.ReadFile("./files/api_latencies.json")
+func (pd *FileAccess) getAPILatenciesData() map[string]int {
+	fileName := fmt.Sprintf("%s/api_latencies.json", pd.PathToDirectory) //"./files/api_latencies.json"
+	fileContent, err := ioutil.ReadFile(fileName)
 	if err != nil {
 		log.Fatal("Error in loading api_latencies", err)
 	}
@@ -32,8 +38,8 @@ func getAPILatenciesData() map[string]int {
 
 // get the transaction information from the csv
 // it returns collection of transaction to be processed
-func getTransactionData() []models.Transaction {
-	fileName := "./files/transactions.csv"
+func (pd *FileAccess) getTransactionData() []models.Transaction {
+	fileName := fmt.Sprintf("%s/transactions.csv", pd.PathToDirectory) //"./files/transactions.csv"
 	fs, err := os.Open(fileName)
 	if err != nil {
 		log.Fatal("Error in loading transactions", err)

@@ -12,9 +12,9 @@ var (
 )
 
 // main point to execute transactions
-func Run(totalTimeList []int) {
-	api_latencies = getAPILatenciesData()
-	transactionData = getTransactionData()
+func (pd *FileAccess) Run(totalTimeList []int) {
+	api_latencies = pd.getAPILatenciesData()
+	transactionData = pd.getTransactionData()
 
 	log.Println(" ********** Transaction Information ********** ")
 	for _, totalTime := range totalTimeList {

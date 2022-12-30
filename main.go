@@ -8,5 +8,8 @@ import (
 
 func main() {
 	log.Println("Hello API Latency")
-	utils.Run([]int{50, 60, 90, 1000})
+	filePath := utils.FileAccess{
+		PathToDirectory: "./files",
+	}
+	filePath.Run([]int{50, 60, 90, 1000})
 }
