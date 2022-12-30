@@ -1,7 +1,12 @@
 package main
 
-import "github.com/felixgiftinfo/api_latencies/utils"
+import (
+	"log"
+
+	"github.com/felixgiftinfo/api_latencies/utils"
+)
 
 func main() {
+	log.Println("Hello API Latency")
 	utils.Run([]int{50, 60, 90, 1000})
 }
