@@ -1,3 +1,3 @@
-module github.com/felixgiftinfo/finger-print-test-project
+module github.com/felixgiftinfo/api_latencies
 
 go 1.18
