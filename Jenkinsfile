@@ -25,8 +25,6 @@ pipeline{
                 }
             }
         }
-    }
-    stages{
         stage("Build"){
             steps{
                 echo 'BUILD EXECUTION STARTED'
@@ -41,8 +39,6 @@ pipeline{
                 }
             }
         }
-    }
-    stages{
         stage("Deploy"){
             steps{
                 echo 'DEPLOYING EXECUTION STARTED'
