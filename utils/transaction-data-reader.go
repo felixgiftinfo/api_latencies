@@ -8,7 +8,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/felixgiftinfo/finger-print-test-project/models"
+	"github.com/felixgiftinfo/api_latencies/models"
 )
 
 // get the api latencies from the json file
