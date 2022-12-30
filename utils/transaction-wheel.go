@@ -3,7 +3,7 @@ package utils
 import (
 	"log"
 
-	"github.com/felixgiftinfo/finger-print-test-project/models"
+	"github.com/felixgiftinfo/api_latencies/models"
 )
 
 var (
