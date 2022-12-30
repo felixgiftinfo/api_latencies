@@ -1,11 +1,29 @@
+.PHONY: run
 run:
-	go run main.go
+	@go run main.go
+	@echo $@
 
+.PHONY: run-build
+run-build: build ; @./bin/api_latency_build
+	@echo $@
+
+.PHONY: build
+build: clean 
+	@go build -o bin/api_latency_build
+	@echo $@
+
+.PHONY: air
 air:
-	air
+	@air
 
-build:
-	go build -o build/api_latency_build
+.PHONY: unit-tests
+unit-tests:
+	@go test ./...
 
-unit-test:
-	go test ./...
+clean:
+	@rm -rf ./bin
+	@# mkdir -p ./bin
+	@echo $@
+all: 
+	@echo "This make line will not be printed"
+	echo "But this will"
