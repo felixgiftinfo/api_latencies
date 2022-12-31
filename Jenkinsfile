@@ -1,30 +1,28 @@
 pipeline{
-    agent{
-        label "API Latencies"
-    }
+    agent any
     tools {
         go 'Go 1.19.3'
     }
     environment {
-        GO114MODULE = 'on'
-        CGO_ENABLED = 0 
+//         GO114MODULE = 'on'
+//         CGO_ENABLED = 0 
         GOPATH = "${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_ID}"
     }
     stages{
-        stage("Unit Testing"){
-            steps{
-                echo 'UNIT TEST EXECUTION STARTED'
-                sh 'make unit-tests'
-            }
-            post{
-                success{
-                    echo "========UNIT TEST EXECUTION COMPLETED========"
-                }
-                failure{
-                    echo "========UNIT TEST EXECUTION FAILED========"
-                }
-            }
-        }
+//         stage("Unit Testing"){
+//             steps{
+//                 echo 'UNIT TEST EXECUTION STARTED'
+//                 sh 'make unit-tests'
+//             }
+//             post{
+//                 success{
+//                     echo "========UNIT TEST EXECUTION COMPLETED========"
+//                 }
+//                 failure{
+//                     echo "========UNIT TEST EXECUTION FAILED========"
+//                 }
+//             }
+//         }
         stage("Build"){
             steps{
                 echo 'BUILD EXECUTION STARTED'
@@ -39,20 +37,20 @@ pipeline{
                 }
             }
         }
-        stage("Deploy"){
-            steps{
-                echo 'DEPLOYING EXECUTION STARTED'
-                sh 'make run-build'
-            }
-            post{
-                success{
-                    echo "========DEPLOYING EXECUTION COMPLETED========"
-                }
-                failure{
-                    echo "========DEPLOYING EXECUTION FAILED========"
-                }
-            }
-        }
+//         stage("Deploy"){
+//             steps{
+//                 echo 'DEPLOYING EXECUTION STARTED'
+//                 sh 'make run-build'
+//             }
+//             post{
+//                 success{
+//                     echo "========DEPLOYING EXECUTION COMPLETED========"
+//                 }
+//                 failure{
+//                     echo "========DEPLOYING EXECUTION FAILED========"
+//                 }
+//             }
+//         }
     }
     post{
         success{
