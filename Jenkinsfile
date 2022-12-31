@@ -65,6 +65,12 @@ pipeline{
                 recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
                 to: "${params.RECIPIENTS}",
                 subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}"
+
+            slackSend channel: '#jenkins', message: "Hi, Do well to find pipeiine status for \
+            ${currentBuild.currentResult}\
+            Job Name: ${env.JOB_NAME}\
+            Build Number: ${env.BUILD_NUMBER}\
+            Url: ${env.BUILD_URL}"
             
         }
     }
