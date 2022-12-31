@@ -20,10 +20,23 @@ air:
 unit-tests:
 	@go test ./...
 
+.PHONY: unit-tests
 clean:
 	@rm -rf ./bin
 	@# mkdir -p ./bin
 	@echo $@
-all: 
-	@echo "This make line will not be printed"
-	echo "But this will"
+
+.PHONY: compose-run
+compose-run: compose-build compose-up
+	@docker-compose up
+	@echo $@
+	
+.PHONY: compose-up
+compose-up: 
+	@docker-compose up
+	@echo $@
+	
+.PHONY: compose-build
+compose-build: 
+	@docker-compose build
+	@echo $@

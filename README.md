@@ -25,3 +25,5 @@ Disclaimer: I am not absolutely confident of this result.
 
 
 Thanks.
+
+This project have the make file for neccessary commands, containerized with docker and CI/CD with jenkins built in.
